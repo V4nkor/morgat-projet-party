@@ -1,7 +1,16 @@
 <script lang="ts" setup>
-import { Event } from '../../utils/ifaces/event.interface'
+//import { Event } from '../../utils/ifaces/event.interface'
 import pfTitle from '../../components/atoms/pfTitle.vue'
 import pfButton from '../../components/atoms/pfButton.vue'
+
+interface Event {
+  id: number
+  name: string
+  date: string
+  players: number
+  gameMaster: string
+  playersMax: number
+}
 
 const event: Event = {
   id: 1,

@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 0",
     "frontend": "pnpm --filter @projet-party/frontend",
     "backend": "pnpm --filter @projet-party/backend",
-    "docker": "docker-compose up"
+    "docker": "docker-compose up",
+    "docker-d": "docker-compose up -d"
   },
   "commitlint": {
     "extends": [

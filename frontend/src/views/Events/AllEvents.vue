@@ -13,31 +13,34 @@ const rows: Row[] = [
   {
     id: 1,
     cells: [
-      { value: 'Soirée JDR', type: 'text' },
-      { value: '2022-01-01', type: 'date' },
-      { value: '4', type: 'number' },
-      { value: 'John Doe', type: 'text' },
-      { value: '6', type: 'number' }
+      { value: 'Soirée JDR' },
+      { value: '2022-01-01' },
+      { value: '4' },
+      { value: 'John Doe' },
+      { value: '6' },
+      { value: '', action: true }
     ]
   },
   {
     id: 2,
     cells: [
-      { value: 'Soirée Alcool', type: 'text' },
-      { value: '2022-01-01', type: 'date' },
-      { value: '4', type: 'number' },
-      { value: 'John Doe', type: 'text' },
-      { value: '6', type: 'number' }
+      { value: 'Soirée Alcool' },
+      { value: '2022-01-01' },
+      { value: '4' },
+      { value: 'John Doe' },
+      { value: '6' },
+      { value: '', action: true }
     ]
   },
   {
     id: 3,
     cells: [
-      { value: 'Soirée Gaming', type: 'text' },
-      { value: '2022-01-01', type: 'date' },
-      { value: '4', type: 'number' },
-      { value: 'John Doe', type: 'text' },
-      { value: '6', type: 'number' }
+      { value: 'Soirée Gaming' },
+      { value: '2022-01-01' },
+      { value: '4' },
+      { value: 'John Doe' },
+      { value: '6' },
+      { value: '', action: true }
     ]
   }
 ]

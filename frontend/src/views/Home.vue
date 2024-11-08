@@ -1,13 +1,10 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
 import pfTitle from '../components/atoms/pfTitle.vue'
 import pfButton from '../components/atoms/pfButton.vue'
 import pfHero from '../components/molecules/pfHero.vue'
 import pfContent from '../components/molecules/pfContent.vue'
 
 const images: string[] = ['./soiree_jdr.jpg', './soiree_alcool.png', './soiree_gaming.jpg']
-
-const currentImg = ref<string>(images[0])
 
 // Create
 </script>

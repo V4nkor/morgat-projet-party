@@ -2,39 +2,47 @@
 import { onMounted, ref } from 'vue'
 
 export interface Props {
-  img: String
-  slideshow: String[]
+  img: string
+  slideshow?: string[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  img: '',
-  slideshow: []
+  img: ''
 })
 
 const currentImg = ref()
 
 onMounted(() => {
-  if (props.slideshow.length === 0) {
-    return
-  }
+  if (!props.slideshow) {
+    console.error('slideshow is not defined')
+  } else {
+    console.log('slideshow is defined')
 
-  currentImg.value = props.slideshow[0]
+    if (props.slideshow.length === 0) {
+      console.log('slideshow is empty')
+    } else {
+      console.log('slideshow is not empty')
+      currentImg.value = props.slideshow[0]
 
-  let i = 0
-  setInterval(() => {
-    i++
-    if (i >= props.slideshow.length) {
-      i = 0
+      let i = 0
+      setInterval(() => {
+        i++
+        if (props.slideshow) {
+          if (i >= props.slideshow.length) {
+            i = 0
+          }
+          currentImg.value = props.slideshow[i]
+        }
+      }, 5000)
     }
-    currentImg.value = props.slideshow[i]
-  }, 5000)
+  }
 })
 </script>
 
 <template>
   <div class="pf-hero">
     <img
-      v-if="props.slideshow.length > 0"
+      v-if="props.slideshow && props.slideshow.length > 0"
       class="pf-hero-background pf-hero-slideshow-fade"
       :src="currentImg"
       alt="Hero image"
