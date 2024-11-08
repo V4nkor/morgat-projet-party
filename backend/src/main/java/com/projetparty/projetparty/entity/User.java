@@ -41,4 +41,10 @@ public class User {
 
     @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Message> sentMessages;
+
+    @OneToMany(mappedBy = "organiser", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Event> attendingEvents;
+
+    @OneToMany(mappedBy = "participants", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Event> organisingEvents;
 }

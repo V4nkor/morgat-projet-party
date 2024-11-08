@@ -51,7 +51,7 @@ const props = withDefaults(defineProps<Props>(), {
     width: 100%;
   }
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: var(--primary-dark);
     transform: scale(1.05);
   }
@@ -64,6 +64,7 @@ const props = withDefaults(defineProps<Props>(), {
   &:disabled {
     background-color: var(--grey-lighter);
     color: var(--grey);
+    cursor: not-allowed;
   }
   &:active:not(:disabled) {
     transform: scale(0.95);

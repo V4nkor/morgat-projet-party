@@ -1,9 +1,11 @@
 package com.projetparty.projetparty.mapper;
 
+import com.projetparty.projetparty.dto.EventDto;
 import com.projetparty.projetparty.dto.InterestDto;
 import com.projetparty.projetparty.dto.MessageDto;
 import com.projetparty.projetparty.dto.RatingDto;
 import com.projetparty.projetparty.dto.UserDto;
+import com.projetparty.projetparty.entity.Event;
 import com.projetparty.projetparty.entity.Interest;
 import com.projetparty.projetparty.entity.Message;
 import com.projetparty.projetparty.entity.Rating;
@@ -18,7 +20,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-08T11:22:07+0100",
+    date = "2024-11-08T16:31:41+0100",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22 (Oracle Corporation)"
 )
 @Component
@@ -30,6 +32,8 @@ public class UserMapperImpl implements UserMapper {
     private InterestMapper interestMapper;
     @Autowired
     private RatingMapper ratingMapper;
+    @Autowired
+    private EventMapper eventMapper;
 
     @Override
     public UserDto toDto(User user) {
@@ -48,6 +52,8 @@ public class UserMapperImpl implements UserMapper {
         userDto.setRatings( ratingSetToRatingDtoList( user.getRatings() ) );
         userDto.setReceivedMessages( messageSetToMessageDtoList( user.getReceivedMessages() ) );
         userDto.setSentMessages( messageSetToMessageDtoList( user.getSentMessages() ) );
+        userDto.setAttendingEvents( eventSetToEventDtoList( user.getAttendingEvents() ) );
+        userDto.setOrganizedEvents( eventSetToEventDtoList( user.getOrganizedEvents() ) );
 
         return userDto;
     }
@@ -69,6 +75,8 @@ public class UserMapperImpl implements UserMapper {
         user.setRatings( ratingDtoListToRatingSet( userDto.getRatings() ) );
         user.setReceivedMessages( messageDtoListToMessageSet( userDto.getReceivedMessages() ) );
         user.setSentMessages( messageDtoListToMessageSet( userDto.getSentMessages() ) );
+        user.setAttendingEvents( eventDtoListToEventSet( userDto.getAttendingEvents() ) );
+        user.setOrganizedEvents( eventDtoListToEventSet( userDto.getOrganizedEvents() ) );
 
         return user;
     }
@@ -140,6 +148,19 @@ public class UserMapperImpl implements UserMapper {
         return list;
     }
 
+    protected List<EventDto> eventSetToEventDtoList(Set<Event> set) {
+        if ( set == null ) {
+            return null;
+        }
+
+        List<EventDto> list = new ArrayList<EventDto>( set.size() );
+        for ( Event event : set ) {
+            list.add( eventMapper.toDto( event ) );
+        }
+
+        return list;
+    }
+
     protected Set<Interest> interestDtoListToInterestSet(List<InterestDto> list) {
         if ( list == null ) {
             return null;
@@ -174,6 +195,19 @@ public class UserMapperImpl implements UserMapper {
         Set<Message> set = new LinkedHashSet<Message>( Math.max( (int) ( list.size() / .75f ) + 1, 16 ) );
         for ( MessageDto messageDto : list ) {
             set.add( messageMapper.toEntity( messageDto ) );
+        }
+
+        return set;
+    }
+
+    protected Set<Event> eventDtoListToEventSet(List<EventDto> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        Set<Event> set = new LinkedHashSet<Event>( Math.max( (int) ( list.size() / .75f ) + 1, 16 ) );
+        for ( EventDto eventDto : list ) {
+            set.add( eventMapper.toEntity( eventDto ) );
         }
 
         return set;

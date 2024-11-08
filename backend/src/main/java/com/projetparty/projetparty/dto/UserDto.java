@@ -21,4 +21,6 @@ public class UserDto {
     private List<RatingDto> ratings;
     private List<MessageDto> receivedMessages;
     private List<MessageDto> sentMessages;
+    private List<EventDto> attendingEvents;
+    private List<EventDto> organisingEvents;
 }

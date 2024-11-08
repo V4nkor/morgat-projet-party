@@ -19,7 +19,7 @@ const currentImg = ref<string>(images[0])
       type="herotitle"
     />
     <pf-title
-      title="Trouvez des soirées jdr, alcool et gaming près de chez vous !"
+      title="Trouvez des soirées JDR, Alcool et Gaming près de chez vous !"
       type="herosubtitle"
     />
   </pf-hero>
@@ -27,9 +27,9 @@ const currentImg = ref<string>(images[0])
     <pf-title title="Trouvons votre soirée !" type="title" />
     <p>Qu'elle type de soirée cherchez vous :</p>
     <div class="flex pf-buttongroup">
-      <pf-button :stretch="false" label="🎲 JDR" />
-      <pf-button :stretch="false" label="🎮 Gaming" />
-      <pf-button :stretch="false" label="🍻 Alcool" />
+      <pf-button :stretch="false" label="🎲 JDR" :disabled="true" />
+      <pf-button :stretch="false" label="🎮 Gaming" :disabled="true" />
+      <pf-button :stretch="false" label="🍻 Alcool" :disabled="true" />
       <router-link to="/events"><pf-button label="🎉 Tout !!" /></router-link>
     </div>
   </pf-content>
