@@ -92,6 +92,8 @@ After that, you can run the frontend by running the following command:
 pnpm frontend launch
 ```
 
+Then use the `init.sql` file in the root folder in  to create the additional tables and indexes needed for the project on pgAdmin.
+
 ### Simple setup
 
 WARNING: This setup is a WIP and currently does not work as intended. Please use the manual setup for now.
