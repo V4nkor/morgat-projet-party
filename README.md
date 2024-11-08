@@ -6,10 +6,10 @@
   - [Table of contents](#table-of-contents)
   - [Description](#description)
   - [Project setup](#project-setup)
-    - [Simple setup](#simple-setup)
     - [Manual setup](#manual-setup)
       - [Backend](#backend)
       - [Frontend](#frontend)
+    - [Simple setup](#simple-setup)
 
 ## Description
 
@@ -22,36 +22,6 @@ The very badly made and approximative MCD for the database can be found at `docs
 The frontend is a WIP and was a secondary concern in this project, since the backend was the more important part (and the frontend is optional).
 
 ## Project setup
-
-### Simple setup
-
-You can run the following command to start the project in one single command inside of the root folder:
-
-```bash
-docker-compose up
-```
-
-If you wish to manually start the project, you can follow the instructions below.
-
-You can either send the commands manually or use the pnpm scripts provided in the `package.json` file in the root folder.
-
-In order to get the IP adress of the PostgreSQL container, you can run the following command:
-
-```bash
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' apirestprojetparty
-```
-
-After that, you can access the pgAdmin container by going to `http://localhost:5050` and login with the credentials in the `docker-compose.yml` file.
-
-You can then add a new server by right-clicking on the "Servers" tab and selecting "Create" -> "Server".
-
-Then, create a new database by right-clicking on the server you just created and selecting "Create" -> "Database".
-
-Make sure to get the login credentials for the database and update accordingly the `application.properties` file in the `backend/src/main/resources` folder.
-
-You must also set the name of the database you created on pgAdmin in the `application.properties` file as well.
-
-Then use the `init.sql` file in the root folder in  to create the additional tables and indexes needed for the project on pgAdmin.
 
 ### Manual setup
 
@@ -123,3 +93,35 @@ After that, you can run the frontend by running the following command:
 ```bash
 pnpm frontend launch
 ```
+
+### Simple setup
+
+WARNING: This setup is a WIP and currently does not work as intended. Please use the manual setup for now.
+
+You can run the following command to start the project in one single command inside of the root folder:
+
+```bash
+docker-compose up
+```
+
+If you wish to manually start the project, you can follow the instructions below.
+
+You can either send the commands manually or use the pnpm scripts provided in the `package.json` file in the root folder.
+
+In order to get the IP adress of the PostgreSQL container, you can run the following command:
+
+```bash
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' apirestprojetparty
+```
+
+After that, you can access the pgAdmin container by going to `http://localhost:5050` and login with the credentials in the `docker-compose.yml` file.
+
+You can then add a new server by right-clicking on the "Servers" tab and selecting "Create" -> "Server".
+
+Then, create a new database by right-clicking on the server you just created and selecting "Create" -> "Database".
+
+Make sure to get the login credentials for the database and update accordingly the `application.properties` file in the `backend/src/main/resources` folder.
+
+You must also set the name of the database you created on pgAdmin in the `application.properties` file as well.
+
+Then use the `init.sql` file in the root folder in  to create the additional tables and indexes needed for the project on pgAdmin.
