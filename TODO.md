@@ -13,7 +13,7 @@ todo.md file for the whole project
 ### backend
 
 - [x] Create basic User routes
-- [ ] Add missing join fetch for User
-- [ ] Continue routes only on user (try to focus on register and maybe implement secure crypt)
+- [x] Add missing join fetch for UserRepository
+- [ ] Continue routes only on User for now (try to focus on register and maybe implement secure crypt)
 - [ ] Try do to segmented tables for events with their dates (example two years)
 - [ ] Create a SQL file for all of the operations to do on the database afterwards
