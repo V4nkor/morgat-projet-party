@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
+
+  db:
+    container_name: apirestprojetparty
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=projetparty
+      - POSTGRES_USER=mmorgat
+      - POSTGRES_PASSWORD=speen
+    ports:
+      - "5432:5432"
+    # Commented because JPA is creating the tables, so we don't need to create them manually
+    # Though it can be useful to add data to the database after the creation of the backend for some specific things
+    # volumes: 
+    #   - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  pgadmin:
+    container_name: pgadmin-container
+    image: dpage/pgadmin4
+    ports:
+      - "5050:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=person@example.com
+      - PGADMIN_DEFAULT_PASSWORD=speen

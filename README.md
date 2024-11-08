@@ -4,10 +4,22 @@
 
 A vueJS frontend and Java Spring boot backend for a solo Evaluation project in the "Backend Optimisation" Course at Sup de Vinci.
 You can find the instructions for the project at `docs/projet-party-instructions.pdf`.
-The very badly made and not correct MCD for the database can be found at `docs/mcd.png`.
+The very badly made and approximative MCD for the database can be found at `docs/mcd2.png`.
 The frontend is a WIP and was a secondary concern in this project, since the backend was the more important part (and the frontend is optional).
 
 ## Project setup
+
+### Simple setup
+
+You can run the following command to start the project in one single command inside of the root folder:
+
+```bash
+docker-compose up
+```
+
+If you wish to manually start the project, you can follow the instructions below.
+
+You can either send the commands manually or use the pnpm scripts provided in the `package.json` file in the root folder.
 
 ### Backend
 
@@ -53,6 +65,12 @@ If on Windows:
 ./backend/mvnw.cmd spring-boot:run
 ```
 
+Another option is to run the backend by using the pnpm script provided in the `package.json` file in the root folder:
+
+```bash
+pnpm backend launch
+```
+
 You can then access the API by going to `http://localhost:8080`.
 
 You will also have access to the Swagger documentation by going to `http://localhost:8080/swagger-ui.html`.
@@ -60,3 +78,9 @@ You will also have access to the Swagger documentation by going to `http://local
 ### Frontend
 
 Make sure you have pnpm installed on your machine for the frontend. If not, you can install it by running `npm install -g pnpm`.
+
+After that, you can run the frontend by running the following command:
+
+```bash
+pnpm frontend launch
+```

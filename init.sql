@@ -1,0 +1,1 @@
+-- In this file, we will add additional tables to the database
