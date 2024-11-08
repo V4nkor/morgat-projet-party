@@ -10,6 +10,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +22,8 @@ import java.util.Optional;
 public class UserService {
     private UserRepository userRepository;
     private UserMapper userMapper;
+
+    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     
     public List<UserDto> findAll(Pageable pageable) {
         return userMapper.toDtos(userRepository.findAll());
@@ -34,6 +39,7 @@ public class UserService {
 
     public UserDto save(UserDto userDto) {
         User user = userMapper.toEntity(userDto);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userMapper.toDto(userRepository.save(user));
     }
 
@@ -49,7 +55,7 @@ public class UserService {
         Optional<User> userOptional = userRepository.findByEmail(email);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            boolean matchPassword = user.getPassword().equals(password);
+            boolean matchPassword = passwordEncoder.matches(password, user.getPassword());
             if (matchPassword) {
                 return userMapper.toDto(user);
             }

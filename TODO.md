@@ -19,9 +19,10 @@ Ongoing tasks
 - [x] Create basic User routes
 - [x] Add missing join fetch for UserRepository
 - [x] Insert data to the database for interests and themes
+- [x] Implement bcrypt for password hashing (needs to be tested)
 
 Ongoing tasks
 
 - [ ] Create a SQL file for all of the operations to do on the database afterwards
-- [ ] Continue routes on User (maybe implement secure crypt)
+- [ ] Continue routes on User
 - [ ] Try do to segmented tables for events with their dates (example two years)
