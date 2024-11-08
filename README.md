@@ -17,7 +17,7 @@ A vueJS frontend and Java Spring boot backend for a solo Evaluation project in t
 
 You can find the instructions for the project at `docs/projet-party-instructions.pdf`.
 
-The very badly made and approximative MCD for the database can be found at `docs/mcd2.png`.
+The very badly made and approximative MCD for the database can be found at `docs/mcdFinal.png`.
 
 The frontend is a WIP and was a secondary concern in this project, since the backend was the more important part (and the frontend is optional).
 
@@ -51,9 +51,7 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' api
 
 After that, you can access the pgAdmin container by going to `http://localhost:5050` and login with the credentials you set up earlier.
 
-You can then add a new server by right-clicking on the "Servers" tab and selecting "Create" -> "Server".
-
-Then, create a new database by right-clicking on the server you just created and selecting "Create" -> "Database".
+You can then add the server and then create a new database on pgAdmin.
 
 Make sure to get the login credentials for the database and update accordingly the `application.properties` file in the `backend/src/main/resources` folder.
 

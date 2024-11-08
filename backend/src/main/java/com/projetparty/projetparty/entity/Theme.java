@@ -23,9 +23,6 @@ public class Theme {
     private String type;
     private String label;
 
-    @Column(name = "max_players")
-    private int maxPlayers;
-
     @OneToMany(mappedBy = "theme", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Event> events;
 }

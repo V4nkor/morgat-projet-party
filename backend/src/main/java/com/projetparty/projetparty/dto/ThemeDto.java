@@ -14,5 +14,4 @@ public class ThemeDto {
 
     private String type;
     private String label;
-    private int maxPlayers;
 }
