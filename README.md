@@ -1,10 +1,24 @@
 # morgat-projet-party
 
+## Table of contents
+
+- [morgat-projet-party](#morgat-projet-party)
+  - [Table of contents](#table-of-contents)
+  - [Description](#description)
+  - [Project setup](#project-setup)
+    - [Simple setup](#simple-setup)
+    - [Manual setup](#manual-setup)
+      - [Backend](#backend)
+      - [Frontend](#frontend)
+
 ## Description
 
 A vueJS frontend and Java Spring boot backend for a solo Evaluation project in the "Backend Optimisation" Course at Sup de Vinci.
+
 You can find the instructions for the project at `docs/projet-party-instructions.pdf`.
+
 The very badly made and approximative MCD for the database can be found at `docs/mcd2.png`.
+
 The frontend is a WIP and was a secondary concern in this project, since the backend was the more important part (and the frontend is optional).
 
 ## Project setup
@@ -21,9 +35,12 @@ If you wish to manually start the project, you can follow the instructions below
 
 You can either send the commands manually or use the pnpm scripts provided in the `package.json` file in the root folder.
 
-### Backend
+### Manual setup
+
+#### Backend
 
 Make sure to have a docker container running with a PostgreSQL database and maybe a pgAdmin container for easier database management.
+
 You can run the following command to start a PostgreSQL container:
 
 ```bash
@@ -45,10 +62,14 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' api
 ```
 
 After that, you can access the pgAdmin container by going to `http://localhost:5050` and login with the credentials you set up earlier.
+
 You can then add a new server by right-clicking on the "Servers" tab and selecting "Create" -> "Server".
+
 Then, create a new database by right-clicking on the server you just created and selecting "Create" -> "Database".
 
-Make sure to get the login credentials for the database and update accordingly the `application.properties` file in the `backend/src/main/resources` folder. You must also set the name of the database you created on pgAdmin in the `application.properties` file as well.
+Make sure to get the login credentials for the database and update accordingly the `application.properties` file in the `backend/src/main/resources` folder.
+
+You must also set the name of the database you created on pgAdmin in the `application.properties` file as well.
 
 After that, make sure the `mvnw` or `mvnw.cmd` file is set as an executable and then run the backend by running the following command:
 
@@ -75,7 +96,7 @@ You can then access the API by going to `http://localhost:8080`.
 
 You will also have access to the Swagger documentation by going to `http://localhost:8080/swagger-ui.html`.
 
-### Frontend
+#### Frontend
 
 Make sure you have pnpm installed on your machine for the frontend. If not, you can install it by running `npm install -g pnpm`.
 
